@@ -82,12 +82,6 @@ button {
   color: #fff;
 }
 
-.login nav button {
-  width: 86px;
-  padding: 8px 0;
-  background: #3a2b58;
-}
-
 .login .loginContainer {
   padding: 60px;
   margin: auto;
@@ -142,16 +136,26 @@ button {
 .signup {
   width: 100%;
   min-height: 100vh;
-  padding: 0 20px;
+  /* padding: 0 20px; */
   background: url(./image/COVID_19_1.jpg);
   background-repeat: no-repeat;
   background-size: cover;
+  /* display: flex; */
+}
+
+.signup nav {
+  background: #603bbb;
+  width: 100%;
+  padding: 5px 40px;
   display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .signup .signupContainer {
   padding: 60px;
   margin: auto;
+  margin-top: 15px;
   width: 100%;
   max-width: 520px;
   min-height: 600px;
@@ -244,7 +248,7 @@ button {
 .input nav {
   background: #603bbb;
   width: 100%;
-  padding: 20px 40px;
+  padding: 5px 40px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -304,5 +308,11 @@ button {
   background: rgba(255, 255, 255, 0.1);
   color: #fff;
   letter-spacing: 1px;
+}
+
+.input .inputContainer .errorMsg {
+  margin: 14px 0;
+  color: red;
+  font-size: 16px;
 }
 

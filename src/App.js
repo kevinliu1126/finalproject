@@ -1,7 +1,6 @@
 import './App.css';
 import { useState, useEffect } from 'react';
 import fire from './fire';
-import { db } from './fire';
 import {BrowserRouter as Router,Switch,Route} from "react-router-dom";
 import Input from "./components/Input";
 import SignIn from './components/login';
@@ -15,6 +14,10 @@ const App = () => {
   const [password, setPassword] = useState('');
   const [emailError, setEmailError] = useState('');
   const [passwordError, setPasswordError] = useState('');
+
+  const BackToHomepage = () => {
+    window.location.replace("http://localhost:3000/")
+  }
 
   const clearInputs = () => {
     setEmail('');
@@ -64,8 +67,8 @@ const App = () => {
 
   const handleLogout = () => {
     fire.auth().signOut();
-    window.location.replace("https://finaltest111.herokuapp.com/login")
-    // window.location.replace("http://localhost:3000/login")
+    // window.location.replace("https://finaltest111.herokuapp.com/login")
+    window.location.replace("http://localhost:3000/login")
   };
 
   const authListener = () => {
@@ -99,6 +102,7 @@ const App = () => {
                 emailError={emailError}
                 passwordError={passwordError}
                 user={user}
+                BackToHomepage={BackToHomepage}
               />
             </Route>
             <Route path="/input">
@@ -114,6 +118,7 @@ const App = () => {
                 emailError={emailError}
                 passwordError={passwordError}
                 user={user}
+                BackToHomepage={BackToHomepage}
               />
             </Route>
             {/* <Route path="/forgetpassword">

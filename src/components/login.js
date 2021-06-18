@@ -16,6 +16,14 @@ const ColorLink = withStyles({
   },
 })(Link)
 
+const WelcomeLink = withStyles({
+  root: {
+    color: 'white',
+    fontWeight:'bolder',
+    fontSize: '30px'
+  },
+})(Link)
+
 function Copyright() {
   return (
     <WhiteTextTypography variant="body2" color="textSecondary" align="center">
@@ -30,22 +38,21 @@ function Copyright() {
 }
 
 const SignIn = (props) => {
-  const { email, setEmail, password, setPassword, handleLogin, emailError, passwordError, user } = props;
+  const { email, setEmail, password, setPassword, handleLogin, emailError, passwordError, user, BackToHomepage } = props;
   return (
   <div>
     {
       user?(
-        window.location.replace("https://finaltest111.herokuapp.com/input")
-        // window.location.replace("http://localhost:3000/input")
+        // window.location.replace("https://finaltest111.herokuapp.com/input")
+        window.location.replace("http://localhost:3000/input")
       ): (
           <section className="login">
-              <nav>
-                <h2>Welcome</h2>
-                <button >back to homepage</button>
-              </nav>
+          <nav>
+            <WelcomeLink href="/" variant="body2">Welcome</WelcomeLink>
+          </nav>
           <div className="loginContainer">
             <h1>LOGIN</h1>
-            <label>Username</label>
+            <label>Email</label>
             <input
                 type="text"
                 autoFocus
@@ -68,7 +75,7 @@ const SignIn = (props) => {
             </ColorLink>
             <br/>
             <button onClick={handleLogin}>
-                signup
+                signin
             </button>
             <Box mt={5}>
              <Copyright />

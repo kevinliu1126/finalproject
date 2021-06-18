@@ -29,18 +29,29 @@ const ColorLink = withStyles({
   },
 })(Link)
 
+const WelcomeLink = withStyles({
+  root: {
+    color: 'white',
+    fontWeight:'bolder',
+    fontSize: '30px'
+  },
+})(Link)
+
 const SignUp = (props) => {
   const { email, setEmail, password, setPassword, handleSignup, emailError, passwordError, user } = props;
   return (
     <div>
       {user?(
-        window.location.replace("https://finaltest111.herokuapp.com/input")
-        // window.location.replace("http://localhost:3000/input")
+        // window.location.replace("https://finaltest111.herokuapp.com/input")
+        window.location.replace("http://localhost:3000/input")
       ):(
-        <section className="signup">
+          <section className="signup">
+          <nav>
+            <WelcomeLink href="/" variant="body2">Welcome</WelcomeLink>
+          </nav>
           <div className="signupContainer">
             <h1>SIGN UP</h1>
-            <label>Username</label>
+            <label>Email</label>
             <input
               type="text"
               autoFocus

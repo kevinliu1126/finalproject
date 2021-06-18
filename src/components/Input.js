@@ -1,15 +1,15 @@
-import React from 'react';
-import TextField from '@material-ui/core/TextField';
+import React, { useState } from 'react';
 import Link from '@material-ui/core/Link';
-import Box from '@material-ui/core/Box';
-import Typography from '@material-ui/core/Typography';
 import { withStyles } from "@material-ui/core/styles";
+import { db } from '../fire';
 
-const WhiteTextTypography = withStyles({
+const WelcomeLink = withStyles({
     root: {
-      color: "white"
-    }
-  })(Typography);
+      color: 'white',
+      fontWeight:'bolder',
+      fontSize: '30px'
+    },
+  })(Link)
   
 const ColorLink = withStyles({
     root: {
@@ -19,13 +19,39 @@ const ColorLink = withStyles({
 })(Link)
 
 export default function Input(props) {
+    const [City, setCity] = useState("");
+    const [Dist, setDist] = useState("");
+    const [Place_name, setPlace_name] = useState("");
+    const [Date_time, setDate_time] = useState("");
+    const [DataError, setDataError] = useState("");
+    const handleSubmit = () => {
+        setDataError("");
+        if (City && Dist && Date_time && Place_name) {
+            db.collection("place").add({
+            City: City,
+            Dist: Dist,
+            Date_time: Date_time,
+            Place_name: Place_name,
+            user: user.email,
+            })
+            
+            setCity("");
+            setDist("");
+            setPlace_name("");
+            setDate_time("");
+            alert("Adding successfully")
+        } else {
+            setDataError("Please enter your information");
+        }
+        
+    }
     const { handleLogout, user } = props;
     return (
         <div>
             {user ? (
                 <section className='input'>
                     <nav>
-                        <h2>Welcome</h2>
+                        <WelcomeLink href="/" variant="body2">Welcome</WelcomeLink>
                         <button onClick={handleLogout}>Logout</button>
                     </nav>
                     <div className='inputContainer'>
@@ -33,28 +59,37 @@ export default function Input(props) {
                         <label>City</label>
                         <input
                             type="text"
+                            value={City}
+                            onChange={(e) => setCity(e.target.value)}
                             autoFocus
-                            required
+                            required="required"
                         />
                         <label>Dist</label>
                         <input
                             type="text"
+                            value={Dist}
+                            onChange={(e) => setDist(e.target.value)}
                             required
                         />
                         <label>Place name</label>
                         <input
                             type="text"
+                            value={Place_name}
+                            onChange={(e) => setPlace_name(e.target.value)}
                             required
                         />
                         <label>Date time</label>
                         <input
                             type="datetime-local"
+                            value={Date_time}
+                            onChange={(e) => setDate_time(e.target.value)}
                             required
                         />
                         <br/>
-                        <button>
+                        <button onClick={handleSubmit}>
                             Submit
                         </button>
+                        <p className="errorMsg">{DataError}</p>
                     </div>
                 </section>
                 
