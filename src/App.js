@@ -16,7 +16,7 @@ const App = () => {
   const [passwordError, setPasswordError] = useState('');
 
   const BackToHomepage = () => {
-    window.location.replace("http://localhost:3000/")
+    window.location.replace("https://finaltest111.herokuapp.com/")
   }
 
   const clearInputs = () => {
@@ -67,8 +67,8 @@ const App = () => {
 
   const handleLogout = () => {
     fire.auth().signOut();
-    // window.location.replace("https://finaltest111.herokuapp.com/login")
-    window.location.replace("http://localhost:3000/login")
+    window.location.replace("https://finaltest111.herokuapp.com/login")
+    // window.location.replace("http://localhost:3000/login")
   };
 
   const authListener = () => {
