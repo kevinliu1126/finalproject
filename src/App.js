@@ -1,7 +1,6 @@
 import './App.css';
 import { useState, useEffect } from 'react';
 import fire from './fire';
-import React from 'react';
 import {BrowserRouter as Router,Switch,Route} from "react-router-dom";
 import Input from "./components/Input";
 import SignIn from './components/login';
@@ -11,24 +10,14 @@ import SignUp from './components/SignUp';
 import AppAppBar from './components/headpage'
 import Main from './components/backgroung'
 import Choose from './components/Choosepage';
-import Select from './components/Select'
-import ReactGA from 'react-ga'
-import { useLocation } from "react-router-dom";
-ReactGA.initialize('UA-199435522-2');
-function usePageViews() {
-  let location = useLocation();
-  React.useEffect(() => {
-    // To Report Page View 
-    ReactGA.pageview(location.pathname + location.search);
-  }, [location]);
-}
-function App(){
+import Select from './components/Select';
+const App = () => {
   const [user, setUser] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [emailError, setEmailError] = useState('');
   const [passwordError, setPasswordError] = useState('');
-  usePageViews();
+
   const clearInputs = () => {
     setEmail('');
     setPassword('');
@@ -93,6 +82,8 @@ function App(){
   };
 
   useEffect(() => {
+    ReactGA.initialize('UA-199435522-2');
+    ReactGA.pageview(window.location.pathname + window.location.search);
     authListener();
   }, []);
   return (
