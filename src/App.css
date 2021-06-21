@@ -316,3 +316,82 @@ button {
   font-size: 16px;
 }
 
+.main{
+  width: 100%;
+  min-height: 100vh;
+  /* padding: 0 20px; */
+  background: url(./image/COVID_19_8.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  /* display: flex; */
+}
+
+.choose{
+  width: 100%;
+  min-height: 100vh;
+  /* padding: 0 20px; */
+  background: url(./image/COVID_19_6.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  /* display: flex; */
+}
+
+.show{
+  width: 100%;
+  min-height: 100vh;
+  /* padding: 0 20px; */
+  background: url(./image/COVID_19_7.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  /* display: flex; */
+}
+.show nav {
+  background: #603bbb;
+  width: 100%;
+  padding: 5px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.show nav h2 {
+  color: #fff;
+}
+
+.show nav button {
+  width: 86px;
+  padding: 8px 0;
+  background: #3a2b58;
+}
+.show .showContainer {
+  padding: 60px;
+  margin: auto;
+  margin-top: 100px;
+  width: 100%;
+  min-width: 250px;
+  min-height: 600px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap:nowrap;
+  background: radial-gradient(
+    ellipse at left bottom,
+    rgb(42, 45, 70) 0%,
+    rgba(76, 49, 126, 0.9) 59%,
+    rgba(52, 66, 136, 0.9) 100%
+  );
+  box-shadow: 0 50px 70px -20px rgba(0, 0, 0, 0.8);
+}
+.show .showContainer h1{
+  color: white;
+  margin: 14px 0;
+  display: block;
+  font-size: 35px;
+  line-height: 1;
+}
+.show .showContainer h2{
+  color: block;
+  margin: 10px ;
+  display: block;
+  font-size: 30px;
+  line-height: 1.5;
+}

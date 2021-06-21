@@ -7,6 +7,10 @@ import SignIn from './components/login';
 // import CheckBox from './components/checkbox';
 import SignUp from './components/SignUp';
 // import ForgetPassword from './components/forgotpassword';
+import AppAppBar from './components/headpage'
+import Main from './components/backgroung'
+import Choose from './components/Choosepage';
+import Select from './components/Select'
 
 const App = () => {
   const [user, setUser] = useState('');
@@ -14,10 +18,6 @@ const App = () => {
   const [password, setPassword] = useState('');
   const [emailError, setEmailError] = useState('');
   const [passwordError, setPasswordError] = useState('');
-
-  const BackToHomepage = () => {
-    window.location.replace("https://finaltest111.herokuapp.com/")
-  }
 
   const clearInputs = () => {
     setEmail('');
@@ -67,8 +67,8 @@ const App = () => {
 
   const handleLogout = () => {
     fire.auth().signOut();
-    window.location.replace("https://finaltest111.herokuapp.com/login")
-    // window.location.replace("http://localhost:3000/login")
+    window.location.replace("https://finaltest111.herokuapp.com/")
+    // window.location.replace("http://localhost:3000/")
   };
 
   const authListener = () => {
@@ -89,9 +89,10 @@ const App = () => {
     <div className="App">
       <Router>
         <Switch>
-            {/* <Route exact path="/">
-              <Login />
-            </Route> */}
+            <Route exact path="/">
+              <AppAppBar />
+              <Main />
+            </Route>
             <Route path="/login">
               <SignIn
                 email={email}
@@ -102,7 +103,6 @@ const App = () => {
                 emailError={emailError}
                 passwordError={passwordError}
                 user={user}
-                BackToHomepage={BackToHomepage}
               />
             </Route>
             <Route path="/input">
@@ -118,12 +118,14 @@ const App = () => {
                 emailError={emailError}
                 passwordError={passwordError}
                 user={user}
-                BackToHomepage={BackToHomepage}
               />
             </Route>
-            {/* <Route path="/forgetpassword">
-              <ForgetPassword />
-            </Route> */}
+            <Route path="/choose" >
+              <Choose user={user} />
+            </Route>
+            <Route path="/show">
+              <Select handleLogout={handleLogout} user={user} />
+            </Route>
         </Switch>
       </Router>
     </div>

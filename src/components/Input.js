@@ -48,10 +48,11 @@ export default function Input(props) {
     const { handleLogout, user } = props;
     return (
         <div>
+            {console.log(user)}
             {user ? (
                 <section className='input'>
                     <nav>
-                        <WelcomeLink href="/" variant="body2">Welcome</WelcomeLink>
+                        <WelcomeLink href="/choose" variant="body2">Welcome</WelcomeLink>
                         <button onClick={handleLogout}>Logout</button>
                     </nav>
                     <div className='inputContainer'>

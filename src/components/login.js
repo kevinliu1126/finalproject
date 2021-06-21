@@ -38,13 +38,13 @@ function Copyright() {
 }
 
 const SignIn = (props) => {
-  const { email, setEmail, password, setPassword, handleLogin, emailError, passwordError, user, BackToHomepage } = props;
+  const { email, setEmail, password, setPassword, handleLogin, emailError, passwordError, user} = props;
   return (
   <div>
     {
       user?(
-        window.location.replace("https://finaltest111.herokuapp.com/input")
-        // window.location.replace("http://localhost:3000/input")
+        window.location.replace("https://finaltest111.herokuapp.com/choose")
+        // window.location.replace("http://localhost:3000/choose")
       ): (
           <section className="login">
           <nav>
