@@ -11,8 +11,16 @@ import AppAppBar from './components/headpage'
 import Main from './components/backgroung'
 import Choose from './components/Choosepage';
 import Select from './components/Select'
+import ReactGA from 'react-ga'
+import { useLocation } from "react-router-dom";
+ReactGA.initialize('UA-199435522-2');
 
 const App = () => {
+  const location = useLocation();
+  useEffect(() => {
+    // To Report Page View 
+    ReactGA.pageview(location.pathname + location.search);
+  }, [location]); 
   const [user, setUser] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
