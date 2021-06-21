@@ -18,6 +18,7 @@ ReactGA.initialize('UA-199435522-2');
 const App = () => {
   const location = useLocation();
   useEffect(() => {
+    authListener();
     // To Report Page View 
     ReactGA.pageview(location.pathname + location.search);
   }, [location]); 
@@ -90,9 +91,9 @@ const App = () => {
     });
   };
 
-  useEffect(() => {
-    authListener();
-  }, []);
+  // useEffect(() => {
+  //   authListener();
+  // }, []);
   return (
     <div className="App">
       <Router>
