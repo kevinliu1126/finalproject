@@ -11,6 +11,7 @@ import AppAppBar from './components/headpage'
 import Main from './components/backgroung'
 import Choose from './components/Choosepage';
 import Select from './components/Select';
+import ReactGA from "react-ga";
 const App = () => {
   const [user, setUser] = useState('');
   const [email, setEmail] = useState('');
