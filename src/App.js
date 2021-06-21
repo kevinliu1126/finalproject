@@ -1,7 +1,7 @@
 import './App.css';
 import { useState, useEffect } from 'react';
 import fire from './fire';
-import {Switch,Route} from "react-router-dom";
+import {BrowserRouter as Router,Switch,Route} from "react-router-dom";
 import Input from "./components/Input";
 import SignIn from './components/login';
 // import CheckBox from './components/checkbox';
@@ -11,16 +11,8 @@ import AppAppBar from './components/headpage'
 import Main from './components/backgroung'
 import Choose from './components/Choosepage';
 import Select from './components/Select'
-import ReactGA from 'react-ga'
-import { useLocation } from "react-router-dom";
-ReactGA.initialize('UA-199435522-2');
 
-export default function App(){
-  const location = useLocation();
-  useEffect(() => {
-    // To Report Page View 
-    ReactGA.pageview(location.pathname + location.search);
-  }, [location]); 
+const App = () => {
   const [user, setUser] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -95,6 +87,7 @@ export default function App(){
   }, []);
   return (
     <div className="App">
+      <Router>
         <Switch>
             <Route exact path="/">
               <AppAppBar />
@@ -134,7 +127,9 @@ export default function App(){
               <Select handleLogout={handleLogout} user={user} />
             </Route>
         </Switch>
+      </Router>
     </div>
   );
 }
 
+export default App;
